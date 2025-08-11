@@ -1,6 +1,3 @@
-# Ignore environment variables
-.env
-
 # Ignore token cache files
 token_cache.json
 
