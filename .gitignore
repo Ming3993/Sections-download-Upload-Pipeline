@@ -1,0 +1,15 @@
+# Ignore environment variables
+.env
+
+# Ignore token cache files
+token_cache.json
+
+# Ignore all text files
+*.txt
+
+# Ignore logs
+*.log
+
+# Ignore Python bytecode
+__pycache__/
+*.pyc
