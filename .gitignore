@@ -6,6 +6,7 @@ token_cache.json
 
 # Ignore all text files
 *.txt
+!sample_input.txt
 
 # Ignore logs
 *.log
