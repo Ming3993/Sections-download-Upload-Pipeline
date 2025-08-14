@@ -1,6 +1,6 @@
 # Ignore token cache files
 token_cache.json
-
+.env
 # Ignore all text files
 *.txt
 !sample_input.txt
