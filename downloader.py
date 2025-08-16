@@ -52,6 +52,9 @@ def pipeline(filepath,access_token,item_id):
                         upload_file(item_id,access_token)
             else:
                 link_id = extract_youtube_id(line)
-                link = f"https://www.youtube.com/watch?v={link_id}"
+                if link_id is not None:
+                    link = f"https://www.youtube.com/watch?v={link_id}"
+                else:
+                    link = line
 
             i ^= 1
