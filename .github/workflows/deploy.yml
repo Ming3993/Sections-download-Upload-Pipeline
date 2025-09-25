@@ -39,5 +39,5 @@ jobs:
           export CLIENT_ID=${{ secrets.CLIENT_ID }}
           export CLIENT_SECRET=${{ secrets.CLIENT_SECRET }}
           echo "${{ secrets.COOKIES_TXT}}" > cookies.txt
-          echo "${{ secrets.TOKEN_CACHE}}" > token_cache.json
+          echo '${{ secrets.TOKEN_CACHE}}' > token_cache.json
           sudo systemctl restart myflask
