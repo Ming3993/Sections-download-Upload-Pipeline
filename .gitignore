@@ -3,6 +3,7 @@ token_cache.json
 .env
 # Ignore all text files
 *.txt
+!requirements.txt
 !sample_input.txt
 
 # Ignore logs
