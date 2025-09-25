@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on:ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
@@ -19,7 +19,7 @@ jobs:
 
     - name: Install dependencies 
       run: |
-      pip install -r requirements.txt
+        pip install -r requirements.txt
 
     - name: Add test later
       run: echo "Add test later"
