@@ -1,0 +1,43 @@
+name: CI/CD to EC2
+
+on: 
+  push: 
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on:ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies 
+      run: |
+      pip install -r requirements.txt
+
+    - name: Add test later
+      run: echo "Add test later"
+
+    - name: Deploy to EC2 via SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd Sections-download-Upload-Pipeline
+          git pull origin main
+          source app/bin/activate
+          pip3 install -r requirements.txt
+          export TENANT_ID=${{ secrets.TENANT_ID }}
+          export CLIENT_ID=${{ secrets.CLIENT_ID }}
+          export CLIENT_SECRET=${{ secrets.CLIENT_SECRET }}
+          echo "${{ secrets.COOKIES_TXT}}" > cookies.txt
+          echo "${{ secrets.TOKEN_CACHE}}" > token_cache.json
+          sudo systemctl restart myflask
